@@ -49,21 +49,15 @@ func (controller *UserController) reg(full_url string) {
 	//Приложение для которого инициализируется обработчик Reg контроллера
 	app := controller.router.GetApp()
 
-	//Тестовый обработчик
-	app.Get(full_url, func(request *fiber.Ctx) error {
-		name := request.Query("name")
-		return request.SendString("Ваше имя: " + name)
+	//Регситрация пользователя
+	app.Post(full_url, func(c *fiber.Ctx) error {
+		return c.SendString("...")
 	})
-
-	//Получение страницы с формой регистрации
-	app.Static(full_url, "./views/reg.html")
-
 }
 
 func (controller *UserController) auth(full_url string) {
-	app := controller.router.GetApp()
-
-	app.Static(full_url, "../../view")
+	// app := controller.router.GetApp()
+	// return
 }
 
 func (controller *UserController) exit(full_url string) {
