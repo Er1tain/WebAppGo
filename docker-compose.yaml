@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  go-fiber-app:
+    build: .
+    container_name: go-fiber-app
+    restart: always
+    ports:
+      - "3001:3001"
+
+  react-app:
+    build: ./view
+    container_name: react-app
+    restart: always
+    ports:
+      - "3000:3000"
